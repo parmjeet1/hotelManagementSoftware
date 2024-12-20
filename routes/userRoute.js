@@ -1,6 +1,6 @@
 
 const express=require("express");
-const {register}=require("../controllers/userControllers")
+const {hotelStaffRegister}=require("../controllers/userControllers")
 const userRoute=express.Router();
-userRoute.post("/register",register)
+userRoute.post("/register",hotelStaffRegister)
 module.exports={userRoute};

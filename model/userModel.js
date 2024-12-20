@@ -1,12 +1,16 @@
-const mongoose=require("mongoose");
-const userSchema=mongoose.Schema({
-    name:String,
-    email:String,
-    password:String,
-    phone:String,
+const mongoose = require("mongoose");
 
-})
+const userSchema = mongoose.Schema({
+   
+    email: {type:String ,required:true,unique:true },
+    password: String,
+    role:{
+type:String,
+enum:['hotel_staff','backend_team']
+    },
+    createdAt:{type:Date,default:Date.now},
+});
 
-const userModel=mongoose.model("users",userSchema);
-module.exports=(userModel);
+const userModel = mongoose.model("users", userSchema);
 
+module.exports = userModel;
